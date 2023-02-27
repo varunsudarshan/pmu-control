@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
+import Button from '@material-ui/core/Button';
 
 function MyComponent() {
   const [data, setData] = useState(null);
 
   const makeApiCall = () => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(response => response.json())
+    fetch('http://127.0.0.1:5000/api/data')
+    // fetch('http://worldtimeapi.org/api/timezone/America/New_York')
+      .then(
+        response => response.json()
+        )
       .then(data => {
         setData(data);
       });
   }
 
   return (
-    <div>
-      <button onClick={makeApiCall}>Make API Call</button>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <Button variant="contained" color="primary" onClick={makeApiCall}>
+        Make API Call
+      </Button>
       {data && (
         <div>
           <h2>API Response:</h2>
