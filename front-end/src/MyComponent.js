@@ -5,7 +5,7 @@ function MyComponent() {
   const [data, setData] = useState(null);
 
   const makeApiCall = () => {
-    fetch('http://127.0.0.1:5000/api/data')
+    fetch('http://127.0.0.1:5025/api/data')
     // fetch('http://worldtimeapi.org/api/timezone/America/New_York')
       .then(
         response => response.json()
